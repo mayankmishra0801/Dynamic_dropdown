@@ -1,0 +1,19 @@
+
+<textarea [(ngModel)]="textareaValue"></textarea>
+
+<select [(ngModel)]="selectedStartValue" (ngModelChange)="setDropdownValues()">
+  <option value="">Select Start Value</option>
+  <option *ngFor="let option of startDropdownValues" [value]="option">{{ option }}</option>
+</select>
+
+<div *ngIf="selectedStartValue !== ''">
+  <ng-container *ngFor="let dropdownValues of dropdownValuesArray; let i = index">
+    <select [(ngModel)]="selectedValues[i]" *ngIf="dropdownValues.length > 0">
+      <option value="">Select Level {{ i + 1 }} Value</option>
+      <option *ngFor="let option of dropdownValues" [value]="option">{{ option }}</option>
+    </select>
+  </ng-container>
+</div>
+
+<button (click)="convertTextAreaValue()">Convert</button>
+

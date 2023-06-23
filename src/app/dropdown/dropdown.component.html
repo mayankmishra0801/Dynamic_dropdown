@@ -1,0 +1,128 @@
+<!-- <select [(ngModel)]="selectedOption">
+  <option *ngFor="let option of options" [value]="option.value">{{ option.label }}</option>
+
+  <div *ngIf="showDropdown" class="dropdown-content">
+      {{option.label}}
+
+  </div>
+</select>
+<div class="dropdown">
+  <button (click)="toggleDropdown()" class="dropbtn">Open Dropdown</button>
+  <div *ngIf="showDropdown" class="dropdown-content">
+    <p>This is the new div that will be displayed when the dropdown is clicked.</p>
+  </div>
+</div>  -->
+
+<!-- <div>
+  <h2>Groups</h2>
+  <ul>
+    <li (click)="toggleGroup1()">
+      Group 1
+      <ul *ngIf="showGroup1">
+        <li>Group 1-1</li>
+      </ul>
+    </li>
+    <li (click)="toggleGroup2()">Group 2
+      <ul *ngIf="showGroup2">
+        <li>Group 1-1</li>
+        <li>Group 2-1</li>
+
+        <li>Group 2-1-1</li>
+
+
+      </ul>
+    </li>
+     <li (click)="toggleGroup3()">Group 3
+      <ul *ngIf="showGroup3">
+        <li>Group 3-1</li>
+        <li>Group 3-1-2</li>
+
+      </ul>
+    </li>
+  </ul>
+</div> -->
+
+
+
+<!-- <div>
+  <h2>Groups</h2>
+  <ul>
+    <ng-container *ngFor="let group of groups">
+      <li (click)="toggleGroup(group)">
+        {{ group.name }}
+        <ul *ngIf="group.showChildren">
+          <ng-container *ngTemplateOutlet="groupTemplate; context: { $implicit: group.children }"></ng-container>
+        </ul>
+      </li>
+    </ng-container>
+  </ul>
+</div>
+
+<ng-template #groupTemplate let-children>
+  <li *ngFor="let child of children" (click)="toggleGroup(child)">
+    {{ child.name }}
+    <ul *ngIf="child.showChildren">
+      <ng-container *ngTemplateOutlet="groupTemplate; context: { $implicit: child.children }"></ng-container>
+    </ul>
+  </li>
+</ng-template> -->
+
+
+
+
+<!-- <div>
+  <h2>Select a Group</h2>
+  <div>
+    <label for="groupSelect">Group</label>
+    <select id="groupSelect" [(ngModel)]="selectedGroup">
+      <option *ngFor="let group of groups" [ngValue]="group">{{ group.name }}</option>
+    </select>
+  </div>
+  <div *ngIf="selectedGroup.children.length > 0">
+    <h3>Child Groups</h3>
+    <div>
+      <label for="childGroupSelect">Child Group</label>
+      <select id="childGroupSelect" [(ngModel)]="selectedChildGroup">
+        <option *ngFor="let child of selectedGroup.children" [ngValue]="child">{{ child.name }}</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<div>
+  <h3>Selected Group: {{ selectedGroup?.name }}</h3>
+  <h3>Selected Child Group: {{ selectedChildGroup?.name }}</h3>
+</div> -->
+
+ <div>
+  <h2>Select a Group</h2>
+  <div>
+    <label for="groupSelect">Group</label>
+    <select id="groupSelect" [(ngModel)]="selectedGroup">
+      <option *ngFor="let group of groups" [ngValue]="group">{{ group.name }}</option>
+    </select>
+  </div>
+  <div *ngIf="selectedGroup.children.length > 0">
+    <h3>Child Groups</h3>
+    <div>
+      <label for="childGroupSelect">Child Group</label>
+      <select id="childGroupSelect" [(ngModel)]="selectedGroup.children[0]">
+        <option *ngFor="let child of selectedGroup.children" [ngValue]="child">{{ child.name }}</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<textarea [(ngModel)]="textAreaContent" rows="4"></textarea>
+<button (click)="updateDropdown()">Update Dropdown</button>
+
+
+
+
+
+
+
+
+
+
+
